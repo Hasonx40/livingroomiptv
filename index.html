@@ -1,10 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="tr">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>LivingRoom IPTV - Apple TV Support & Help Center</title>
-  <meta name="description" content="Official support center, setup instructions, and frequently asked questions for LivingRoom IPTV on Apple TV (tvOS).">
+  <title>LivingRoom IPTV Player — Apple TV, iPhone & iPad için 4K Medya Oynatıcı</title>
+  <meta name="description" content="Apple TV (tvOS), iPhone ve iPad (iOS) için geliştirilen 4K HDR M3U & Xtream medya oynatıcı. Sadece 29.99₺ tek ödeme, abonelik yok, %100 reklamsız.">
+  <meta property="og:title" content="LivingRoom IPTV Player — 4K Medya Oynatıcı">
+  <meta property="og:description" content="Kendi M3U ve Xtream listelerinizi Apple TV, iPhone ve iPad'de 4K kalitesinde oynatın. Sadece 29.99₺ tek ödeme ve %100 reklamsız.">
+  <meta property="og:image" content="assets/hero-showcase.jpg">
   <link rel="stylesheet" href="assets/style.css">
   <link rel="icon" type="image/png" href="assets/app-logo.png">
 </head>
@@ -15,37 +18,79 @@
   <header class="navbar">
     <div class="container nav-content">
       <a href="index.html" class="nav-brand">
-        <img src="assets/app-logo.png" alt="LivingRoom IPTV Logo" class="nav-logo">
-        <span>LivingRoom IPTV</span>
+        <img src="assets/app-logo.png" alt="LivingRoom IPTV Player Logo" class="nav-logo">
+        <span>LivingRoom IPTV Player</span>
       </a>
       <ul class="nav-links">
-        <li><a href="#features">Features</a></li>
-        <li><a href="#guide">Setup Guide</a></li>
-        <li><a href="#faq">FAQ</a></li>
-        <li><a href="privacy.html">Privacy Policy</a></li>
-        <li><a href="#contact" class="btn-contact">Get Support</a></li>
+        <li><a href="#features" data-tr="Özellikler" data-en="Features">Özellikler</a></li>
+        <li><a href="#guide" data-tr="Kurulum" data-en="Setup Guide">Kurulum</a></li>
+        <li><a href="#faq" data-tr="S.S.S." data-en="FAQ">S.S.S.</a></li>
+        <li><a href="privacy.html" data-tr="Gizlilik Politikası" data-en="Privacy Policy">Gizlilik Politikası</a></li>
+        <li><a href="#contact" data-tr="Destek" data-en="Support">Destek</a></li>
       </ul>
+      <div class="nav-actions">
+        <button class="lang-switch" id="langBtn" type="button" onclick="toggleLang()">EN 🇬🇧</button>
+        <a href="https://apps.apple.com/tr/app/livingroom-iptv-player/id6827553919?l=tr" target="_blank" rel="noopener" class="btn-nav-download">
+          <span></span>
+          <span data-tr="App Store'dan İndir" data-en="Download on App Store">App Store'dan İndir</span>
+        </a>
+      </div>
     </div>
   </header>
 
   <!-- Hero Section -->
   <section class="hero">
     <div class="container">
-      <div class="badge-tvos">
-        <span> tvOS 17.0+ Compatible • 4K HDR Player</span>
+      <div class="hero-badges">
+        <div class="badge-pill">
+          <span> Apple TV 4K • iPhone • iPad</span>
+        </div>
+        <div class="badge-pill highlight">
+          <span data-tr="✨ App Store'da Yayında!" data-en="✨ Available on the App Store!">✨ App Store'da Yayında!</span>
+        </div>
       </div>
-      <h1>The Ultimate IPTV Experience<br>Built Exclusively for Apple TV</h1>
-      <p>
-        High-performance, buffer-free playback for your live television channels, movies, and TV series.
-        Designed with Apple TV spatial navigation and native tvOS elegance.
+
+      <h1 data-tr="Apple Ekosistemi İçin<br>Yeni Nesil 4K Medya Oynatıcı" data-en="Next-Gen 4K Media Player<br>For the Apple Ecosystem">
+        Apple Ekosistemi İçin<br>Yeni Nesil 4K Medya Oynatıcı
+      </h1>
+
+      <p class="subtitle" data-tr="Kendi M3U ve Xtream çalma listelerinizi Apple TV, iPhone ve iPad cihazlarınızda donanım hızlandırmalı 4K HDR kalitesinde, takılmadan ve tamamen reklamsız oynatın." data-en="Play your own M3U and Xtream playlists across Apple TV, iPhone, and iPad with hardware-accelerated 4K HDR playback and zero ads.">
+        Kendi M3U ve Xtream çalma listelerinizi Apple TV, iPhone ve iPad cihazlarınızda donanım hızlandırmalı 4K HDR kalitesinde, takılmadan ve tamamen reklamsız oynatın.
       </p>
-      <div class="hero-buttons">
-        <a href="#guide" class="btn-primary">Quick Setup Guide</a>
-        <a href="#faq" class="btn-secondary">Frequently Asked Questions</a>
-        <a href="#contact" class="btn-secondary">Contact Support</a>
+
+      <!-- One-Time Payment & No Ads Highlight -->
+      <div class="price-banner">
+        <span class="price-tag" data-tr="🔥 SADECE 29.99₺ TEK ÖDEME" data-en="🔥 ONE-TIME PURCHASE (₺29.99)">🔥 SADECE 29.99₺ TEK ÖDEME</span>
+        <span class="price-divider">•</span>
+        <span class="price-feature" data-tr="Aylık Abonelik Yok" data-en="No Monthly Subscriptions">Aylık Abonelik Yok</span>
+        <span class="price-divider">•</span>
+        <span class="price-feature" data-tr="%100 Reklamsız Deneyim" data-en="100% Ad-Free Experience">%100 Reklamsız Deneyim</span>
       </div>
-      <div class="hero-preview">
-        <img src="assets/screenshot.png" alt="LivingRoom IPTV Apple TV Interface">
+
+      <div class="hero-buttons">
+        <a href="https://apps.apple.com/tr/app/livingroom-iptv-player/id6827553919?l=tr" target="_blank" rel="noopener" class="btn-appstore">
+          <span></span>
+          <span data-tr="App Store'dan Hemen İndir" data-en="Download on the App Store">App Store'dan Hemen İndir</span>
+        </a>
+        <a href="#guide" class="btn-secondary" data-tr="Hızlı Kurulum Rehberi" data-en="Quick Setup Guide">Hızlı Kurulum Rehberi</a>
+        <a href="#contact" class="btn-secondary" data-tr="Destek & İletişim" data-en="Contact Support">Destek & İletişim</a>
+      </div>
+
+      <div class="disclaimer-note" data-tr="⚠️ Önemli Uyarı: LivingRoom IPTV Player yalnızca bir video/medya oynatıcıdır. Uygulama içerisinde hiçbir kanal, yayın veya medya içeriği barındırılmaz ve satılmaz." data-en="⚠️ Important Notice: LivingRoom IPTV Player is strictly a media player application. It does not host, provide, or sell any TV channels, streams, or media content.">
+        ⚠️ Önemli Uyarı: LivingRoom IPTV Player yalnızca bir video/medya oynatıcıdır. Uygulama içerisinde hiçbir kanal, yayın veya medya içeriği barındırılmaz ve satılmaz.
+      </div>
+
+      <!-- 3-Card Product Showcase -->
+      <div class="showcase-grid">
+        <div class="showcase-card">
+          <img src="assets/hero-showcase.jpg" alt="LivingRoom IPTV Player App Store Showcase">
+        </div>
+        <div class="showcase-card">
+          <img src="assets/ecosystem-preview.jpg" alt="Apple TV, iPad and iPhone Media Player">
+        </div>
+        <div class="showcase-card">
+          <img src="assets/features-preview.jpg" alt="4K Video Player Features">
+        </div>
       </div>
     </div>
   </section>
@@ -54,46 +99,46 @@
   <section class="features" id="features">
     <div class="container">
       <div class="section-header">
-        <span class="tag">Designed for Big Screens</span>
-        <h2>Engineered for Performance & Simplicity</h2>
-        <p>LivingRoom IPTV is crafted from the ground up to take full advantage of Apple TV hardware decoding.</p>
+        <span class="tag" data-tr="Gelişmiş Oynatıcı" data-en="Advanced Media Player">Gelişmiş Oynatıcı</span>
+        <h2 data-tr="Maksimum Performans ve Sadeliğin Buluşması" data-en="Engineered for Performance & Simplicity">Maksimum Performans ve Sadeliğin Buluşması</h2>
+        <p data-tr="Apple işlemcileri için özel olarak optimize edilmiş altyapı ile tüm ekranlarda akıcı oynatma." data-en="Built from the ground up to take full advantage of Apple Silicon hardware decoding.">Apple işlemcileri için özel olarak optimize edilmiş altyapı ile tüm ekranlarda akıcı oynatma.</p>
       </div>
 
       <div class="grid-3">
         <div class="card">
-          <div class="card-icon">⚡️</div>
-          <h3>Xtream Codes & M3U</h3>
-          <p>Seamlessly connect with your Xtream Codes API server credentials (Host, Username, Password) or import your M3U playlist with fast categorization.</p>
+          <div class="card-icon">📂</div>
+          <h3 data-tr="M3U & Xtream Oynatıcı" data-en="M3U & Xtream Playlist Player">M3U & Xtream Oynatıcı</h3>
+          <p data-tr="Kendi M3U bağlantı adresinizi veya Xtream API bilgilerinizi saniyeler içinde ekleyin, akıllı kategorilendirme ile kolayca yönetin." data-en="Import your personal M3U URLs or Xtream API credentials in seconds with fast automatic categorization.">Kendi M3U bağlantı adresinizi veya Xtream API bilgilerinizi saniyeler içinde ekleyin, akıllı kategorilendirme ile kolayca yönetin.</p>
         </div>
 
         <div class="card">
-          <div class="card-icon">⚽️</div>
-          <h3>Live Sports Scores Overlay</h3>
-          <p>Never miss a moment with integrated real-time match scores and league standings directly accessible right beside your live broadcast.</p>
+          <div class="card-icon">💎</div>
+          <h3 data-tr="Sadece 29.99₺ • Reklam Yok" data-en="One-Time Purchase • Zero Ads">Sadece 29.99₺ • Reklam Yok</h3>
+          <p data-tr="Her ay tekrarlayan abonelik ücretleri veya videonuzu bölen reklamlar yok. Tek seferlik ödeme ile ömür boyu reklamsız kullanın." data-en="No recurring monthly fees and zero interrupting ads. Enjoy lifetime ad-free access with a single one-time purchase.">Her ay tekrarlayan abonelik ücretleri veya videonuzu bölen reklamlar yok. Tek seferlik ödeme ile ömür boyu reklamsız kullanın.</p>
         </div>
 
         <div class="card">
-          <div class="card-icon">⏺️</div>
-          <h3>Local Stream Recording</h3>
-          <p>Record your favorite live matches or TV broadcasts with one click on the remote and watch them later offline from your recordings library.</p>
-        </div>
-
-        <div class="card">
-          <div class="card-icon">🌐</div>
-          <h3>Multilingual Interface</h3>
-          <p>Full native interface support for 6 languages: English, Turkish (Türkçe), German (Deutsch), French (Français), Italian (Italiano), and Spanish (Español).</p>
+          <div class="card-icon">⏯️</div>
+          <h3 data-tr="Kaldığın Yerden Devam Et" data-en="Smart Resume Playback">Kaldığın Yerden Devam Et</h3>
+          <p data-tr="İzlediğiniz videoların süresini otomatik olarak hafızada tutar; dilediğiniz zaman tam bıraktığınız saniyeden devam edebilirsiniz." data-en="Automatically remembers your playback position so you can resume your videos right where you left off.">İzlediğiniz videoların süresini otomatik olarak hafızada tutar; dilediğiniz zaman tam bıraktığınız saniyeden devam edebilirsiniz.</p>
         </div>
 
         <div class="card">
           <div class="card-icon">🎧</div>
-          <h3>Multi-Audio & Subtitles</h3>
-          <p>Effortlessly switch between audio tracks (original language, dubbing) and subtitle streams on the fly while watching movies or TV series.</p>
+          <h3 data-tr="Çoklu Ses & Altyazı Seçimi" data-en="Multi-Audio & Subtitle Tracks">Çoklu Ses & Altyazı Seçimi</h3>
+          <p data-tr="Akış içerisindeki farklı ses dilleri (orijinal dil, dublaj) ve gömülü altyazı seçenekleri arasında oynatıcı içinden anında geçiş yapın." data-en="Switch effortlessly between embedded audio tracks and subtitle languages directly from the player HUD.">Akış içerisindeki farklı ses dilleri (orijinal dil, dublaj) ve gömülü altyazı seçenekleri arasında oynatıcı içinden anında geçiş yapın.</p>
+        </div>
+
+        <div class="card">
+          <div class="card-icon">🌍</div>
+          <h3 data-tr="6 Dil Desteği" data-en="6 Interface Languages">6 Dil Desteği</h3>
+          <p data-tr="Türkçe, İngilizce, Almanca, Fransızca, İtalyanca ve İspanyolca dahil 6 farklı dilde yerel arayüz desteği." data-en="Full native interface localization for Turkish, English, German, French, Italian, and Spanish.">Türkçe, İngilizce, Almanca, Fransızca, İtalyanca ve İspanyolca dahil 6 farklı dilde yerel arayüz desteği.</p>
         </div>
 
         <div class="card">
           <div class="card-icon">🔒</div>
-          <h3>100% Private & Secure</h3>
-          <p>Your playlist credentials and stream URLs remain strictly on your Apple TV device. No data tracking, no analytics SDKs, and zero telemetry.</p>
+          <h3 data-tr="%100 Gizlilik ve Güvenlik" data-en="100% Private & On-Device">%%100 Gizlilik ve Güvenlik</h3>
+          <p data-tr="Çalma listesi bilgileriniz ve favorileriniz yalnızca kendi Apple cihazınızda saklanır. Hiçbir kişisel veri toplanmaz veya takip edilmez." data-en="Your playlist URLs and credentials remain strictly on your device. Zero analytics tracking and zero personal data collection.">Çalma listesi bilgileriniz ve favorileriniz yalnızca kendi Apple cihazınızda saklanır. Hiçbir kişisel veri toplanmaz veya takip edilmez.</p>
         </div>
       </div>
     </div>
@@ -103,45 +148,41 @@
   <section class="setup-guide" id="guide">
     <div class="container">
       <div class="section-header">
-        <span class="tag">Getting Started</span>
-        <h2>How to Setup LivingRoom IPTV</h2>
-        <p>Follow these quick steps to start streaming in minutes.</p>
+        <span class="tag" data-tr="Başlangıç Rehberi" data-en="Getting Started">Başlangıç Rehberi</span>
+        <h2 data-tr="LivingRoom IPTV Player Nasıl Kurulur?" data-en="How to Set Up LivingRoom IPTV Player">LivingRoom IPTV Player Nasıl Kurulur?</h2>
+        <p data-tr="Sadece birkaç adımda kendi medya listelerinizi oynatmaya başlayın." data-en="Follow these quick steps to start playing your media playlists.">Sadece birkaç adımda kendi medya listelerinizi oynatmaya başlayın.</p>
       </div>
 
       <div class="steps-list">
         <div class="step-card">
           <div class="step-number">1</div>
           <div class="step-info">
-            <h4>Launch App on Apple TV</h4>
-            <p>Open LivingRoom IPTV from your Apple TV Home screen. On first launch, you will see the Setup Gate screen.</p>
+            <h4 data-tr="App Store'dan İndirin" data-en="Download from the App Store">App Store'dan İndirin</h4>
+            <p data-tr="Apple TV, iPhone veya iPad cihazınızda App Store üzerinden LivingRoom IPTV Player uygulamasını indirin ve açın." data-en="Download and launch LivingRoom IPTV Player from the App Store on your Apple TV, iPhone, or iPad.">Apple TV, iPhone veya iPad cihazınızda App Store üzerinden LivingRoom IPTV Player uygulamasını indirin ve açın.</p>
           </div>
         </div>
 
         <div class="step-card">
           <div class="step-number">2</div>
           <div class="step-info">
-            <h4>Select Your Language</h4>
-            <p>Click the Language button in the top-right corner to choose your preferred interface language (English, Turkish, German, French, Italian, Spanish).</p>
+            <h4 data-tr="Arayüz Dilinizi Seçin" data-en="Choose Your Interface Language">Arayüz Dilinizi Seçin</h4>
+            <p data-tr="Kurulum ekranının sağ üst köşesinden tercih ettiğiniz dili (Türkçe, English, Deutsch vb.) seçin." data-en="Select your preferred language (Turkish, English, German, etc.) from the top-right corner of the setup screen.">Kurulum ekranının sağ üst köşesinden tercih ettiğiniz dili (Türkçe, English, Deutsch vb.) seçin.</p>
           </div>
         </div>
 
         <div class="step-card">
           <div class="step-number">3</div>
           <div class="step-info">
-            <h4>Enter Your Provider Credentials or Try Demo</h4>
-            <p>
-              Fill in your Xtream Codes API Server URL (e.g. <code>http://example.com:8080</code>), Username, and Password, then click <strong>Connect & Verify</strong>.
-              <br><br>
-              <em>Don't have a provider yet? Click <strong>Demo Modu / Demo Mode</strong> to immediately test the player with legal open-source test streams!</em>
-            </p>
+            <h4 data-tr="Kendi Çalma Listenizi Ekleyin (veya Test Yayınlarını Deneyin)" data-en="Add Your Playlist (or Try Sample Streams)">Kendi Çalma Listenizi Ekleyin (veya Test Yayınlarını Deneyin)</h4>
+            <p data-tr="M3U URL adresinizi veya Xtream sunucu bilgilerinizi girip Bağlan'a dokunun. Dilerseniz açık kaynaklı örnek test videolarıyla oynatıcıyı hemen test edebilirsiniz." data-en="Enter your M3U URL or Xtream server credentials and tap Connect, or test the player immediately with built-in open-source sample streams.">M3U URL adresinizi veya Xtream sunucu bilgilerinizi girip Bağlan'a dokunun. Dilerseniz açık kaynaklı örnek test videolarıyla oynatıcıyı hemen test edebilirsiniz.</p>
           </div>
         </div>
 
         <div class="step-card">
           <div class="step-number">4</div>
           <div class="step-info">
-            <h4>Enjoy 4K Streaming</h4>
-            <p>Browse Live TV channels, Movies, and TV Series using the Apple TV Remote trackpad or directional buttons with instant playback.</p>
+            <h4 data-tr="4K Kalitesinde Keyfini Çıkarın" data-en="Enjoy 4K HDR Playback">4K Kalitesinde Keyfini Çıkarın</h4>
+            <p data-tr="Favori listelerinizi oluşturun, ses/altyazı ayarlarınızı kişiselleştirin ve reklamsız medya oynatıcının keyfini sürün." data-en="Organize your favorites, switch audio/subtitle tracks on the fly, and enjoy smooth ad-free playback.">Favori listelerinizi oluşturun, ses/altyazı ayarlarınızı kişiselleştirin ve reklamsız medya oynatıcının keyfini sürün.</p>
           </div>
         </div>
       </div>
@@ -152,83 +193,59 @@
   <section class="faq-section" id="faq">
     <div class="container">
       <div class="section-header">
-        <span class="tag">Help & Troubleshooting</span>
-        <h2>Frequently Asked Questions</h2>
-        <p>Find answers to common questions about playback, playlists, and settings.</p>
+        <span class="tag" data-tr="Yardım Merkezi" data-en="Help & Troubleshooting">Yardım Merkezi</span>
+        <h2 data-tr="Sıkça Sorulan Sorular" data-en="Frequently Asked Questions">Sıkça Sorulan Sorular</h2>
+        <p data-tr="Uygulama, fiyatlandırma ve oynatıcı özellikleri hakkında merak edilenler." data-en="Answers to common questions about pricing, playlists, and playback.">Uygulama, fiyatlandırma ve oynatıcı özellikleri hakkında merak edilenler.</p>
       </div>
 
       <div class="faq-list">
-        <div class="faq-item">
+        <div class="faq-item active">
           <button class="faq-question" type="button">
-            <span>Does LivingRoom IPTV provide any TV channels or content?</span>
+            <span data-tr="LivingRoom IPTV Player içerisinde hazır kanal veya yayın var mı?" data-en="Does LivingRoom IPTV Player include any TV channels or media content?">LivingRoom IPTV Player içerisinde hazır kanal veya yayın var mı?</span>
             <span class="faq-icon">+</span>
           </button>
           <div class="faq-answer">
-            <p>No. LivingRoom IPTV is strictly a media player application. It does not provide, host, or distribute any media content or channels. Users must supply their own legal IPTV playlist credentials (Xtream Codes API or M3U) from an authorized service provider, or use the built-in Demo Mode with public domain streams.</p>
+            <p data-tr="Hayır. LivingRoom IPTV Player yalnızca boş bir medya oynatıcı (video player) uygulamasıdır. Uygulama içerisinde hiçbir televizyon kanalı, yayın, film veya abonelik satışı bulunmamaktadır. Kullanıcılar kendi yasal M3U veya Xtream çalma listelerini eklemelidir." data-en="No. LivingRoom IPTV Player is strictly a general-purpose media player application. It does not provide, host, or sell any TV channels, streams, or media content. Users must supply their own legal playlists.">Hayır. LivingRoom IPTV Player yalnızca boş bir medya oynatıcı (video player) uygulamasıdır. Uygulama içerisinde hiçbir televizyon kanalı, yayın, film veya abonelik satışı bulunmamaktadır. Kullanıcılar kendi yasal M3U veya Xtream çalma listelerini eklemelidir.</p>
           </div>
         </div>
 
         <div class="faq-item">
           <button class="faq-question" type="button">
-            <span>How do I switch audio languages or subtitles?</span>
+            <span data-tr="Uygulama aylık abonelikli mi yoksa tek ödeme mi?" data-en="Is there a monthly subscription or is it a one-time purchase?">Uygulama aylık abonelikli mi yoksa tek ödeme mi?</span>
             <span class="faq-icon">+</span>
           </button>
           <div class="faq-answer">
-            <p>While playing a movie or series episode, swipe down on your Apple TV Remote or press the Select button to display the playback HUD. Navigate to the Audio & Subtitle track selector to switch between available language tracks provided in your stream.</p>
+            <p data-tr="LivingRoom IPTV Player sadece 29.99₺ tek seferlik ödemedir. Aylık veya yıllık tekrarlayan abonelik ücreti yoktur ve uygulama içi reklam içermez." data-en="LivingRoom IPTV Player is a one-time purchase (₺29.99 in Turkey). There are no recurring monthly or yearly subscriptions and zero advertisements.">LivingRoom IPTV Player sadece 29.99₺ tek seferlik ödemedir. Aylık veya yıllık tekrarlayan abonelik ücreti yoktur ve uygulama içi reklam içermez.</p>
           </div>
         </div>
 
         <div class="faq-item">
           <button class="faq-question" type="button">
-            <span>How does the stream recording feature work?</span>
+            <span data-tr="Ses dili ve altyazı nasıl değiştirilir?" data-en="How do I change audio tracks or subtitles?">Ses dili ve altyazı nasıl değiştirilir?</span>
             <span class="faq-icon">+</span>
           </button>
           <div class="faq-answer">
-            <p>When watching a live channel, click the red <strong>Record</strong> button in the playback overlay. The broadcast stream is saved directly into your Apple TV's local application storage. You can view, play, or delete recorded broadcasts at any time from the <strong>Recordings (Kayıtlar)</strong> screen on the main menu.</p>
+            <p data-tr="Video oynatılırken ekrana dokunarak (veya Apple TV kumandasında Seç tuşuna basarak) oynatıcı kontrol panelini açın. Ses ve Altyazı ikonuna tıklayarak akışta bulunan diller arasında anında geçiş yapabilirsiniz." data-en="While playing a video, bring up the player overlay controls and select the Audio & Subtitles menu to switch between embedded language tracks.">Video oynatılırken ekrana dokunarak (veya Apple TV kumandasında Seç tuşuna basarak) oynatıcı kontrol panelini açın. Ses ve Altyazı ikonuna tıklayarak akışta bulunan diller arasında anında geçiş yapabilirsiniz.</p>
           </div>
         </div>
 
         <div class="faq-item">
           <button class="faq-question" type="button">
-            <span>Why is my stream buffering or failing to load?</span>
+            <span data-tr="Hangi video formatları ve kodekler destekleniyor?" data-en="What video formats and codecs are supported?">Hangi video formatları ve kodekler destekleniyor?</span>
             <span class="faq-icon">+</span>
           </button>
           <div class="faq-answer">
-            <p>Buffering usually stems from one of the following reasons:
-              <br>1. <strong>Network Connection:</strong> We recommend connecting your Apple TV via an Ethernet cable or a strong 5GHz Wi-Fi network.
-              <br>2. <strong>Server Overload:</strong> The IPTV server host you provided may be experiencing high traffic or latency.
-              <br>3. <strong>Expired Subscription:</strong> Verify that your IPTV provider account is active and hasn't exceeded connection limits.
-            </p>
+            <p data-tr="HLS (.m3u8), MPEG-TS (.ts), MP4, MKV, AVI konteyner formatları ile H.264, HEVC (H.265), AAC, AC3 ve EAC3 ses/görüntü kodekleri donanım hızlandırmalı olarak desteklenmektedir." data-en="Supports HLS (.m3u8), MPEG-TS (.ts), MP4, MKV, AVI, and major codecs including H.264, HEVC / H.265, AAC, AC3, and EAC3 with hardware acceleration.">HLS (.m3u8), MPEG-TS (.ts), MP4, MKV, AVI konteyner formatları ile H.264, HEVC (H.265), AAC, AC3 ve EAC3 ses/görüntü kodekleri donanım hızlandırmalı olarak desteklenmektedir.</p>
           </div>
         </div>
 
         <div class="faq-item">
           <button class="faq-question" type="button">
-            <span>Can I add multiple user accounts or playlists?</span>
+            <span data-tr="Gizlilik politikanız nedir? Verilerim kaydediliyor mu?" data-en="What is your privacy policy? Do you collect user data?">Gizlilik politikanız nedir? Verilerim kaydediliyor mu?</span>
             <span class="faq-icon">+</span>
           </button>
           <div class="faq-answer">
-            <p>Yes! On the main landing screen, click <strong>Switch Account</strong> or <strong>Add Account</strong> to manage multiple Xtream Codes profiles and seamlessly toggle between family members or different providers.</p>
-          </div>
-        </div>
-
-        <div class="faq-item">
-          <button class="faq-question" type="button">
-            <span>What video formats and codecs are supported?</span>
-            <span class="faq-icon">+</span>
-          </button>
-          <div class="faq-answer">
-            <p>LivingRoom IPTV supports HLS (m3u8), MPEG-TS (ts), MP4, MKV, AVI, and major video/audio codecs including H.264, HEVC / H.265, AAC, AC3, and EAC3 with hardware-accelerated decoding.</p>
-          </div>
-        </div>
-
-        <div class="faq-item">
-          <button class="faq-question" type="button">
-            <span>What is your privacy and data collection policy?</span>
-            <span class="faq-icon">+</span>
-          </button>
-          <div class="faq-answer">
-            <p>We respect your privacy completely. LivingRoom IPTV collects <strong>zero personal data</strong>. We do not track your IP address, viewing history, device identifiers, or search queries. All server credentials and favorites are stored locally on your Apple TV device. Read our full <a href="privacy.html" style="color: var(--accent-cyan);">Privacy Policy</a> for details.</p>
+            <p data-tr="LivingRoom IPTV Player sıfır kişisel veri toplar. Eklediğiniz çalma listeleri, sunucu adresleri ve favorileriniz yalnızca kendi cihazınızın yerel hafızasında tutulur; hiçbir dış sunucuya gönderilmez." data-en="We collect zero personal data. Your playlists, server credentials, and favorites are stored exclusively on your local Apple device.">LivingRoom IPTV Player sıfır kişisel veri toplar. Eklediğiniz çalma listeleri, sunucu adresleri ve favorileriniz yalnızca kendi cihazınızın yerel hafızasında tutulur; hiçbir dış sunucuya gönderilmez.</p>
           </div>
         </div>
       </div>
@@ -239,21 +256,22 @@
   <section class="contact-section" id="contact">
     <div class="container">
       <div class="support-card">
-        <h3>Need Help or Found an Issue?</h3>
-        <p>Our developer support team is here to assist you with any questions, bug reports, or feature requests.</p>
+        <h3 data-tr="Yardıma mı İhtiyacınız Var?" data-en="Need Help or Support?">Yardıma mı İhtiyacınız Var?</h3>
+        <p data-tr="Soru, görüş ve geri bildirimleriniz için geliştirici destek ekibimize doğrudan ulaşabilirsiniz." data-en="Reach out to our developer support team for any questions, bug reports, or feature requests.">Soru, görüş ve geri bildirimleriniz için geliştirici destek ekibimize doğrudan ulaşabilirsiniz.</p>
         <div class="contact-badges">
-          <a href="mailto:horcunozkaya@gmail.com?subject=LivingRoom%20IPTV%20Support%20Request" class="contact-pill">
-            <span>✉️</span>
-            <span>Email Support: horcunozkaya@gmail.com</span>
+          <a href="https://apps.apple.com/tr/app/livingroom-iptv-player/id6827553919?l=tr" target="_blank" rel="noopener" class="contact-pill">
+            <span></span>
+            <span data-tr="App Store Sayfası" data-en="View on App Store">App Store Sayfası</span>
           </a>
-          <a href="https://github.com/Hasonx40/livingroomiptv" target="_blank" rel="noopener" class="contact-pill">
+          <a href="mailto:horcunozkaya@gmail.com?subject=LivingRoom%20IPTV%20Player%20Support" class="contact-pill">
+            <span>✉️</span>
+            <span>horcunozkaya@gmail.com</span>
+          </a>
+          <a href="https://github.com/Hasonx40/livingroomiptv/issues" target="_blank" rel="noopener" class="contact-pill">
             <span>🐙</span>
-            <span>GitHub Repository & Issues</span>
+            <span data-tr="GitHub Destek & Bildirim" data-en="GitHub Issues & Support">GitHub Destek & Bildirim</span>
           </a>
         </div>
-        <p style="margin-top: 20px; font-size: 0.85rem; color: var(--text-muted);">
-          Typical email response time: within 24–48 hours.
-        </p>
       </div>
     </div>
   </section>
@@ -261,15 +279,15 @@
   <!-- Footer -->
   <footer>
     <div class="container footer-content">
-      <div class="footer-copy">
-        &copy; 2026 LivingRoom IPTV. All rights reserved. Built for Apple TV (tvOS).
+      <div class="footer-copy" data-tr="© 2026 LivingRoom IPTV Player. Tüm hakları saklıdır. Apple TV, iPhone ve iPad için geliştirilmiştir." data-en="© 2026 LivingRoom IPTV Player. All rights reserved. Built for Apple TV, iPhone, and iPad.">
+        © 2026 LivingRoom IPTV Player. Tüm hakları saklıdır. Apple TV, iPhone ve iPad için geliştirilmiştir.
       </div>
       <ul class="footer-links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="#features">Features</a></li>
-        <li><a href="#faq">FAQ</a></li>
-        <li><a href="privacy.html">Privacy Policy</a></li>
-        <li><a href="mailto:horcunozkaya@gmail.com">Contact</a></li>
+        <li><a href="index.html" data-tr="Ana Sayfa" data-en="Home">Ana Sayfa</a></li>
+        <li><a href="https://apps.apple.com/tr/app/livingroom-iptv-player/id6827553919?l=tr" target="_blank" rel="noopener">App Store</a></li>
+        <li><a href="#features" data-tr="Özellikler" data-en="Features">Özellikler</a></li>
+        <li><a href="privacy.html" data-tr="Gizlilik Politikası" data-en="Privacy Policy">Gizlilik Politikası</a></li>
+        <li><a href="mailto:horcunozkaya@gmail.com" data-tr="İletişim" data-en="Contact">İletişim</a></li>
       </ul>
     </div>
   </footer>
@@ -286,6 +304,21 @@
         }
       });
     });
+
+    // Bilingual TR / EN Switcher
+    let currentLang = 'tr';
+    function setLang(lang) {
+      currentLang = lang;
+      document.documentElement.lang = lang;
+      document.getElementById('langBtn').textContent = lang === 'tr' ? 'EN 🇬🇧' : 'TR 🇹🇷';
+      document.querySelectorAll('[data-tr]').forEach(el => {
+        el.innerHTML = el.getAttribute('data-' + lang);
+      });
+    }
+
+    function toggleLang() {
+      setLang(currentLang === 'tr' ? 'en' : 'tr');
+    }
   </script>
 </body>
 </html>
