@@ -8,8 +8,647 @@
   <meta property="og:title" content="LivingRoom IPTV Player — 4K Medya Oynatıcı">
   <meta property="og:description" content="Kendi M3U ve Xtream listelerinizi Apple TV, iPhone ve iPad'de 4K kalitesinde oynatın. Sadece 29.99₺ tek ödeme ve %100 reklamsız.">
   <meta property="og:image" content="assets/hero-showcase.jpg">
-  <link rel="stylesheet" href="assets/style.css">
   <link rel="icon" type="image/png" href="assets/app-logo.png">
+  <link rel="stylesheet" href="assets/style.css?v=2">
+  <style>
+    :root {
+      --bg-primary: #060911;
+      --bg-secondary: #0c1322;
+      --bg-card: rgba(16, 24, 40, 0.78);
+      --bg-card-hover: rgba(24, 36, 60, 0.92);
+      --border-color: rgba(255, 255, 255, 0.12);
+      --border-cyan: rgba(0, 229, 255, 0.5);
+      --accent-cyan: #00e5ff;
+      --accent-blue: #2979ff;
+      --accent-purple: #7c4dff;
+      --text-primary: #ffffff;
+      --text-secondary: #94a3b8;
+      --text-muted: #64748b;
+      --font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Inter", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      --radius-xl: 24px;
+      --radius-lg: 18px;
+      --radius-md: 12px;
+      --radius-sm: 8px;
+      --shadow-glow: 0 0 45px rgba(0, 229, 255, 0.2);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: var(--font-family);
+      background-color: var(--bg-primary);
+      color: var(--text-primary);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    .bg-glow {
+      position: fixed;
+      top: -220px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 1000px;
+      height: 650px;
+      background: radial-gradient(circle, rgba(0, 229, 255, 0.16) 0%, rgba(41, 121, 255, 0.12) 42%, transparent 72%);
+      pointer-events: none;
+      z-index: -1;
+      filter: blur(85px);
+    }
+
+    .container {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* Navbar */
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(6, 9, 17, 0.86);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      border-bottom: 1px solid var(--border-color);
+      padding: 14px 0;
+    }
+
+    .nav-content {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .nav-brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: var(--text-primary);
+      font-weight: 800;
+      font-size: 1.15rem;
+      letter-spacing: -0.02em;
+    }
+
+    .nav-logo {
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      object-fit: cover;
+      box-shadow: 0 0 16px rgba(0, 229, 255, 0.35);
+      border: 1px solid rgba(0, 229, 255, 0.3);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--text-secondary);
+      font-size: 0.94rem;
+      font-weight: 500;
+      transition: color 0.2s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--accent-cyan);
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .lang-switch {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid var(--border-color);
+      color: var(--text-primary);
+      padding: 8px 14px;
+      border-radius: var(--radius-sm);
+      font-size: 0.85rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .lang-switch:hover {
+      border-color: var(--accent-cyan);
+      color: var(--accent-cyan);
+    }
+
+    .btn-nav-download {
+      background: linear-gradient(135deg, #00e5ff, #2979ff);
+      color: #040914 !important;
+      font-weight: 800 !important;
+      font-size: 0.9rem;
+      padding: 9px 18px;
+      border-radius: var(--radius-sm);
+      text-decoration: none !important;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      box-shadow: 0 4px 18px rgba(0, 229, 255, 0.3);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .btn-nav-download:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 24px rgba(0, 229, 255, 0.5);
+    }
+
+    /* Hero Section */
+    .hero {
+      padding: 72px 0 56px;
+      text-align: center;
+    }
+
+    .hero-badges {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 24px;
+    }
+
+    .badge-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 7px 18px;
+      background: rgba(255, 255, 255, 0.07);
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      border-radius: 50px;
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--text-primary);
+    }
+
+    .badge-pill.highlight {
+      background: rgba(0, 229, 255, 0.14);
+      border-color: var(--border-cyan);
+      color: var(--accent-cyan);
+      box-shadow: 0 0 24px rgba(0, 229, 255, 0.22);
+    }
+
+    .hero h1 {
+      font-size: 3.5rem;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1.14;
+      margin-bottom: 20px;
+      background: linear-gradient(180deg, #ffffff 35%, #94a3b8 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero p.subtitle {
+      font-size: 1.22rem;
+      color: var(--text-secondary);
+      max-width: 720px;
+      margin: 0 auto 32px;
+      line-height: 1.55;
+    }
+
+    /* Pricing Highlight Banner inside Hero */
+    .price-banner {
+      display: inline-flex;
+      align-items: center;
+      gap: 14px;
+      flex-wrap: wrap;
+      justify-content: center;
+      background: linear-gradient(135deg, rgba(6, 28, 42, 0.95), rgba(12, 22, 42, 0.98));
+      border: 2px solid #00e5ff;
+      border-radius: 60px;
+      padding: 14px 30px;
+      margin-bottom: 34px;
+      box-shadow: 0 0 32px rgba(0, 229, 255, 0.28);
+    }
+
+    .price-tag {
+      font-size: 1.22rem;
+      font-weight: 800;
+      color: #00e5ff;
+      letter-spacing: 0.02em;
+    }
+
+    .price-divider {
+      color: rgba(255, 255, 255, 0.4);
+      font-weight: 700;
+    }
+
+    .price-feature {
+      font-size: 1.02rem;
+      font-weight: 700;
+      color: #ffffff;
+    }
+
+    .hero-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      margin-bottom: 28px;
+      flex-wrap: wrap;
+    }
+
+    .btn-appstore {
+      background: linear-gradient(135deg, #00e5ff 0%, #2979ff 100%);
+      color: #040811 !important;
+      text-decoration: none !important;
+      font-weight: 800;
+      font-size: 1.1rem;
+      padding: 16px 36px;
+      border-radius: var(--radius-md);
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      box-shadow: 0 10px 30px rgba(0, 229, 255, 0.4);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .btn-appstore:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 14px 38px rgba(0, 229, 255, 0.6);
+    }
+
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid var(--border-color);
+      color: #ffffff !important;
+      text-decoration: none !important;
+      font-weight: 600;
+      font-size: 1.02rem;
+      padding: 16px 28px;
+      border-radius: var(--radius-md);
+      transition: background 0.2s ease, border-color 0.2s ease;
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.14);
+      border-color: rgba(255, 255, 255, 0.3);
+    }
+
+    .disclaimer-note {
+      font-size: 0.88rem;
+      color: var(--text-secondary);
+      max-width: 720px;
+      margin: 0 auto 48px;
+      padding: 10px 20px;
+      border-radius: 50px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    /* Showcase Grid */
+    .showcase-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      max-width: 1120px;
+      margin: 0 auto;
+    }
+
+    .showcase-card {
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      border: 1px solid var(--border-color);
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.65);
+      transition: transform 0.3s ease, border-color 0.3s ease;
+      background: var(--bg-secondary);
+    }
+
+    .showcase-card:hover {
+      transform: translateY(-6px);
+      border-color: var(--border-cyan);
+    }
+
+    .showcase-card img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    /* Features Section */
+    .features {
+      padding: 90px 0 60px;
+    }
+
+    .section-header {
+      text-align: center;
+      max-width: 640px;
+      margin: 0 auto 54px;
+    }
+
+    .section-header .tag {
+      color: var(--accent-cyan);
+      font-weight: 700;
+      text-transform: uppercase;
+      font-size: 0.85rem;
+      letter-spacing: 0.1em;
+      margin-bottom: 10px;
+      display: block;
+    }
+
+    .section-header h2 {
+      font-size: 2.3rem;
+      font-weight: 800;
+      margin-bottom: 14px;
+      letter-spacing: -0.02em;
+    }
+
+    .section-header p {
+      color: var(--text-secondary);
+      font-size: 1.05rem;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 26px;
+    }
+
+    .card {
+      background: var(--bg-card);
+      backdrop-filter: blur(20px);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 32px 28px;
+      transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      background: var(--bg-card-hover);
+      border-color: var(--border-cyan);
+    }
+
+    .card-icon {
+      font-size: 2.1rem;
+      margin-bottom: 16px;
+      display: inline-block;
+    }
+
+    .card h3 {
+      font-size: 1.22rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    .card p {
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+      line-height: 1.55;
+    }
+
+    /* Setup Guide */
+    .setup-guide {
+      padding: 60px 0;
+    }
+
+    .steps-list {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+      max-width: 840px;
+      margin: 0 auto;
+    }
+
+    .step-card {
+      display: flex;
+      gap: 22px;
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 24px;
+      align-items: flex-start;
+    }
+
+    .step-number {
+      flex-shrink: 0;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent-cyan), var(--accent-blue));
+      color: #040914;
+      font-weight: 800;
+      font-size: 1.15rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .step-info h4 {
+      font-size: 1.15rem;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+
+    .step-info p {
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+    }
+
+    /* FAQ Section */
+    .faq-section {
+      padding: 70px 0;
+    }
+
+    .faq-list {
+      max-width: 840px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .faq-item {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+    }
+
+    .faq-question {
+      width: 100%;
+      text-align: left;
+      padding: 20px 24px;
+      background: none;
+      border: none;
+      color: var(--text-primary);
+      font-size: 1.05rem;
+      font-weight: 600;
+      font-family: inherit;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .faq-question:hover {
+      color: var(--accent-cyan);
+    }
+
+    .faq-icon {
+      transition: transform 0.3s ease;
+      font-size: 1.3rem;
+      color: var(--text-muted);
+    }
+
+    .faq-item.active .faq-icon {
+      transform: rotate(45deg);
+      color: var(--accent-cyan);
+    }
+
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease, padding 0.3s ease;
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+      padding: 0 24px;
+      line-height: 1.6;
+    }
+
+    .faq-item.active .faq-answer {
+      max-height: 320px;
+      padding: 0 24px 20px;
+    }
+
+    /* Support Card */
+    .contact-section {
+      padding: 40px 0 20px;
+    }
+
+    .support-card {
+      max-width: 840px;
+      margin: 0 auto;
+      background: linear-gradient(180deg, rgba(16, 26, 46, 0.92) 0%, rgba(10, 16, 30, 0.96) 100%);
+      border: 1px solid var(--border-cyan);
+      border-radius: var(--radius-xl);
+      padding: 44px 36px;
+      box-shadow: var(--shadow-glow);
+      text-align: center;
+    }
+
+    .support-card h3 {
+      font-size: 1.85rem;
+      font-weight: 800;
+      margin-bottom: 12px;
+    }
+
+    .support-card p {
+      color: var(--text-secondary);
+      font-size: 1.05rem;
+      margin-bottom: 28px;
+    }
+
+    .contact-badges {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .contact-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 13px 24px;
+      border-radius: var(--radius-md);
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid var(--border-color);
+      color: var(--text-primary) !important;
+      text-decoration: none !important;
+      font-weight: 600;
+      transition: all 0.2s ease;
+    }
+
+    .contact-pill:hover {
+      background: rgba(0, 229, 255, 0.12);
+      border-color: var(--accent-cyan);
+      transform: translateY(-2px);
+    }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid var(--border-color);
+      padding: 44px 0;
+      margin-top: 70px;
+      background: rgba(4, 7, 13, 0.95);
+    }
+
+    .footer-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .footer-copy {
+      color: var(--text-muted);
+      font-size: 0.88rem;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 24px;
+      list-style: none;
+      flex-wrap: wrap;
+    }
+
+    .footer-links a {
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: color 0.2s ease;
+    }
+
+    .footer-links a:hover {
+      color: var(--accent-cyan);
+    }
+
+    @media (max-width: 900px) {
+      .showcase-grid {
+        grid-template-columns: 1fr;
+        max-width: 520px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 2.35rem;
+      }
+      .nav-links {
+        display: none;
+      }
+      .price-banner {
+        border-radius: 20px;
+        padding: 14px 20px;
+      }
+      .step-card {
+        flex-direction: column;
+        gap: 14px;
+      }
+      .support-card {
+        padding: 28px 20px;
+      }
+    }
+  </style>
 </head>
 <body>
   <div class="bg-glow"></div>
@@ -83,13 +722,13 @@
       <!-- 3-Card Product Showcase -->
       <div class="showcase-grid">
         <div class="showcase-card">
-          <img src="assets/hero-showcase.jpg" alt="LivingRoom IPTV Player App Store Showcase">
+          <img src="assets/hero-showcase.jpg" alt="LivingRoom IPTV Player App Store Showcase" onerror="this.src='assets/screenshot.png'">
         </div>
         <div class="showcase-card">
-          <img src="assets/ecosystem-preview.jpg" alt="Apple TV, iPad and iPhone Media Player">
+          <img src="assets/ecosystem-preview.jpg" alt="Apple TV, iPad and iPhone Media Player" onerror="this.src='assets/screenshot.png'">
         </div>
         <div class="showcase-card">
-          <img src="assets/features-preview.jpg" alt="4K Video Player Features">
+          <img src="assets/features-preview.jpg" alt="4K Video Player Features" onerror="this.src='assets/screenshot.png'">
         </div>
       </div>
     </div>
@@ -137,7 +776,7 @@
 
         <div class="card">
           <div class="card-icon">🔒</div>
-          <h3 data-tr="%100 Gizlilik ve Güvenlik" data-en="100% Private & On-Device">%%100 Gizlilik ve Güvenlik</h3>
+          <h3 data-tr="%100 Gizlilik ve Güvenlik" data-en="100% Private & On-Device">%100 Gizlilik ve Güvenlik</h3>
           <p data-tr="Çalma listesi bilgileriniz ve favorileriniz yalnızca kendi Apple cihazınızda saklanır. Hiçbir kişisel veri toplanmaz veya takip edilmez." data-en="Your playlist URLs and credentials remain strictly on your device. Zero analytics tracking and zero personal data collection.">Çalma listesi bilgileriniz ve favorileriniz yalnızca kendi Apple cihazınızda saklanır. Hiçbir kişisel veri toplanmaz veya takip edilmez.</p>
         </div>
       </div>
